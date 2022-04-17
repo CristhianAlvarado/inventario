@@ -24,8 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        /* $modulos = Auth::user()->modulolevels()->get();
-        return $modulos; */
-        return view('home');
+        $empresa = Auth::user()->empresas()->get();
+        if(count($empresa)>1){
+            return view('empresas', compact('empresa'));
+            // return $empresa;
+        }else{
+            return view('home');
+        }
+        // return $empresas;
+        // return view('empresas');
     }
 }

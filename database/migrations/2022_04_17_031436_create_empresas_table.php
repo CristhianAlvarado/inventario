@@ -19,9 +19,7 @@ class CreateEmpresasTable extends Migration
             $table->string('razon_social');
             $table->string('direccion');
             $table->string('correo',120);
-            $table->string('telefono',20);
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');   
+            $table->string('telefono',20); 
             $table->timestamps();
         });
     }

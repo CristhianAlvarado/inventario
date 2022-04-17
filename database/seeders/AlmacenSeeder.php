@@ -16,7 +16,7 @@ class AlmacenSeeder extends Seeder
     public function run()
     {
         $user=User::all()->first();
-        $empresa=$user->empresas()->first();
+        
         
         Almacen::create([
             'descripcion' => 'Oficina Principal',
@@ -26,7 +26,7 @@ class AlmacenSeeder extends Seeder
             'distrito_id' => '130101',
             'email' => $user->email,
             'codigo_fiscal' => '0000',
-            'empresa_id' => $empresa->id
+            'empresa_id' => '1'
         ]);
     }
 }

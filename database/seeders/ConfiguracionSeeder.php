@@ -20,5 +20,12 @@ class ConfiguracionSeeder extends Seeder
             'navbar' => '',
             'empresa_id' => '1'
         ]);
+
+        Configuracion::insert([
+            'whatsapp' => '948912308',
+            'visual' => '{"bg": "white", "header": "light", "navbar": "fixed", "sidebars": "light", "sidebar_theme": "dark"}',
+            'navbar' => '',
+            'empresa_id' => '2'
+        ]);
     }
 }

@@ -12,6 +12,6 @@ class Configuracion extends Model
     use HasFactory;
 
     public function empresa(){
-        return $this->belongsTo(Configuracion::class);
+        return $this->belongsTo(Empresa::class);
     }
 }

@@ -3,10 +3,11 @@
     $path = explode('/', request()->path());
     $path[1] = (array_key_exists(1, $path)> 0)?$path[1]:'';
     $path[2] = (array_key_exists(2, $path)> 0)?$path[2]:'';
-    $path[0] = ($path[0] === '')?'documents':$path[0];
-    // $visual->sidebar_theme = property_exists($visual, 'sidebar_theme')?$visual->sidebar_theme:''
+    $path[0] = ($path[0] === '')?'documents':$path[0];    
 @endphp
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="fixed no-mobile-device custom-scroll sidebar-white sidebar-light newinvoice">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="fixed no-mobile-device custom-scroll sidebar-white sidebar-light {{-- {{$vc_configuracion->visual->sidebar_theme ?? ''}} --}} 
+    {{-- {{ ($vc_configuracion->visual->sidebar_theme == 'white' || $vc_configuracion->visual->sidebar_theme == 'gray' || $vc_configuracion->visual->sidebar_theme == 'green' || $vc_configuracion->visual->sidebar_theme == 'warning' || $vc_configuracion->visual->sidebar_theme == 'ligth-blue') ? 'sidebar-light' : '' }}  --}}
+    newinvoice">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -123,7 +124,7 @@
                         @endguest
                     </ul> --}}
 
-    <a class='ws-flotante' href='https://wa.me/924545720' target="BLANK" style="background-image: url('{{asset('logo/ws.png')}}'); background-size: 70px; background-repeat: no-repeat;" ></a>
+    <a class='ws-flotante' href='https://wa.me/{{$vc_configuracion->whatsapp}}' target="BLANK" style="background-image: url('{{asset('logo/ws.png')}}'); background-size: 70px; background-repeat: no-repeat;" ></a>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 

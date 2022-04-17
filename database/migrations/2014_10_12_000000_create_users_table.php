@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('tipo_usuario')->default(1); // 1: empresas, 2: empleados
+            $table->unsignedBigInteger('empresa_activa')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -27,7 +28,8 @@ class CreateUsersTable extends Migration
         DB::table('users')->insert([[            
             'name' => 'Cristhian Alvarado',
             'email' => 'cristhianaa13@gmail.com',
-            'password' => bcrypt('12345678')
+            'password' => bcrypt('12345678'),
+            'empresa_activa' => '1'
         ]
         ]);
     }

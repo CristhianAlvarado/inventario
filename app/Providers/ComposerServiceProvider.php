@@ -25,6 +25,7 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('layouts.partials.sidebar', 'App\Http\ViewComposers\ModuloListComposer');
-        View::composer('layouts.partials.sidebar', 'App\Http\ViewComposers\LevelsListComposer');        
+        View::composer('layouts.partials.sidebar', 'App\Http\ViewComposers\LevelsListComposer');    
+        View::composer('layouts.app', 'App\Http\ViewComposers\ConfiguracionComposer');    
     }
 }

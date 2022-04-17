@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Empresa extends Model
 {
-    protected $fillable = ['ruc','razon_social','direccion','correo','telefono','user_id'];
+    protected $fillable = ['ruc','razon_social','direccion','correo','telefono'];
     public $timestamps = false;
     use HasFactory;
 
-    //Relacion unos a muchos inversa
-    public function user(){
-        return $this->belongsTo(User::class);
+    //Relacion muchos a muchos inversa
+    public function users(){
+        return $this->belongsToMany(User::class);
     }
 
     public function configuraciones(){
