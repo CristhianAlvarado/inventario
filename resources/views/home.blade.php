@@ -16,10 +16,8 @@
 
                     {{ __('You are logged in!') }}
                 </div>
-
             </div>
-
-            <home-component></home-component>
+            
         </div>
     </div>
 </div>

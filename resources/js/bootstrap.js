@@ -1,6 +1,10 @@
+import Vue from 'vue';
 window._ = require('lodash');
+window.moment = require('moment');
+window.Popper = require('popper.js').default;
 
 try {
+    window.$ = window.jQuery = require('jquery');
     require('bootstrap');
 } catch (e) {}
 
@@ -10,23 +14,32 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
+ import axios from 'axios';
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+ axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+ 
+/*  let token = document.head.querySelector('meta[name="csrf-token"]');
+ 
+ if (token) {
+     axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+     window.headers_token = {
+         'X-CSRF-TOKEN': token.content,
+     }
+ } else {
+     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+ } */
+ 
+ Vue.prototype.$http = axios;
 
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
+// require('./vendor/perfect-scrollbar.jquery.min')
+require('./vendor/sidebarmenu')
+require('./vendor/waves')
+require('./vendor/custom')
 
-// import Echo from 'laravel-echo';
+ $(function () {
+    const listElements = document.getElementsByClassName('nav-active');
+    if (listElements.length > 0) {
+        listElements[0].scrollIntoView();
+    }
+});
 
-// window.Pusher = require('pusher-js');
-
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     forceTLS: true
-// });

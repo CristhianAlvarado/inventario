@@ -7,17 +7,21 @@
 require('./bootstrap');
 
 import Vue from 'vue'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import lang from 'element-ui/lib/locale/lang/es'
+import locale from 'element-ui/lib/locale'
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+locale.use(lang)
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+
+
+export default ElementUI;
+
+Vue.use(ElementUI, { size: 'small' })
+
+Vue.prototype.$eventHub = new Vue()
+
 
 Vue.component('home-component', require('./components/HomeComponent.vue').default);
 

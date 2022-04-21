@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AlmacenController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,4 +22,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+
+Route::get('/empresas', [HomeController::class, 'empresas'])->name('empresas');
+
+Route::post('/dashboard/{empresa}', [HomeController::class, 'ingresar']);
+
+
+Route::prefix('almacen')->group(function (){
+    Route::get('/', [AlmacenController::class, 'index'])->name('almacen');
+});
