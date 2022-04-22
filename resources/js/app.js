@@ -25,6 +25,11 @@ Vue.prototype.$eventHub = new Vue()
 
 Vue.component('home-component', require('./components/HomeComponent.vue').default);
 
+//Componentes de almacen
+Vue.component('almacen-index', require('./views/almacen/index.vue').default);
+Vue.component('almacen-create', require('./views/almacen/form.vue').default);
+Vue.component('almacen-series', require('./views/almacen/series.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

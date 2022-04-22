@@ -22,13 +22,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard.index');
 
-Route::get('/empresas', [HomeController::class, 'empresas'])->name('empresas');
+Route::get('/empresas', [HomeController::class, 'empresas'])->name('empresas.home');
 
 Route::post('/dashboard/{empresa}', [HomeController::class, 'ingresar']);
 
 
+//Rutas de almacenes
 Route::prefix('almacen')->group(function (){
-    Route::get('/', [AlmacenController::class, 'index'])->name('almacen');
+    Route::get('/', [AlmacenController::class, 'index'])->name('almacen.index');
+    Route::get('lista', [AlmacenController::class, 'almacenes']);
+    Route::get('tables', [AlmacenController::class, 'tables']);
 });

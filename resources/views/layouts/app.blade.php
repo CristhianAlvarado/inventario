@@ -21,6 +21,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('porto-light/vendor/bootstrap/css/bootstrap.css') }}" />
+    <link rel="stylesheet" href="{{ asset('porto-light/css/theme.css') }}" />
+    <link rel="stylesheet" href="{{ asset('porto-light/css/custom.css') }}" />
+    
     <link rel="stylesheet" href="{{ asset('porto-light/vendor/animate/animate.css') }}" />
     <link rel="stylesheet" href="{{ asset('porto-light/vendor/font-awesome/5.11/css/all.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('porto-light/vendor/select2/css/select2.css') }}" />
@@ -43,8 +46,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('porto-light/master/style-switcher/style-switcher.css')}}">
 
-    <link rel="stylesheet" href="{{ asset('porto-light/css/theme.css') }}" />
-    <link rel="stylesheet" href="{{ asset('porto-light/css/custom.css') }}" />
+    
 
     
 

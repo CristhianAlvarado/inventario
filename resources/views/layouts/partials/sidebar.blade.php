@@ -36,7 +36,7 @@
                     @if(in_array('dashboard', $vc_modules))
                         <li class="{{ ($firstLevel === 'dashboard')?'nav-active':'' }}">
                             <a class="nav-link"
-                                href="{{-- {{ route('tenant.dashboard.index') }} --}}">
+                                href="{{route('dashboard.index')}} ">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     width="24"
                                     height="24"
@@ -201,7 +201,7 @@
                     {{-- Almacen --}}
                     @if(in_array('almacen', $vc_modules))
                         <li class="{{ ($firstLevel === 'almacen')?'nav-active':'' }}">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('almacen.index')}} ">
                                 <i class="fas fa-briefcase"></i>
                                 <span>Almacen</span>
                             </a>
@@ -233,6 +233,8 @@
                             </a>
                         </li>
                     @endif
+
+                    
 
 
                 </ul>
