@@ -11,7 +11,7 @@
         <div class="sidebar-toggle" data-toggle-class="sidebar-left-collapsed" data-target="html"
              data-fire-event="sidebar-left-toggle">
              {{-- <img src="{{ asset('images/disc.svg') }}" alt="Sidebar toggle" class="img-fluid" width="20"> --}}
-            <i class="fas fa-bullseye" aria-label="Toggle sidebar"></i>
+             <i class="fas fa-bars" style="color: #777;" aria-label="Toggle sidebar"></i>
         </div>
         <div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
             <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
@@ -68,7 +68,7 @@
                 </div>
                 <figure class="profile-picture">
                     {{-- <img src="{{asset('img/%21logged-user.jpg')}}" alt="Profile" class="rounded-circle" data-lock-picture="img/%21logged-user.jpg" /> --}}
-                    <div class="border rounded-circle text-center" style="width: 25px;"><i class="fas fa-user"></i></div>
+                    <div class="border rounded-circle text-center" style="width: 25px; color: #ccc;"><i class="fas fa-user"></i></div>
                 </figure>
                 {{-- <i class="fa custom-caret"></i> --}}
             </a>

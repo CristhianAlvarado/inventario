@@ -31,8 +31,8 @@
                                 <td>{{ row.descripcion }} </td>
                                 <td>{{ row.codigo_fiscal }} </td>
                                 <td>
-                                    <button class="btn btn-xs btn-info" @click="createAlmacen(row.id)"><i class="far fa-edit"></i></button>
-                                    <button class="btn btn-xs btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                    <button class="btn btn-xs btn-info" @click.prevent="createAlmacen(row.id)"><i class="far fa-edit"></i></button>
+                                    <button class="btn btn-xs btn-danger" @click.prevent="deleteAlmacen(row.id)"><i class="fas fa-trash-alt"></i></button>
                                     <button class="btn btn-xs btn-warning">Series</button>
                                 </td>
                             </tr>
@@ -82,6 +82,28 @@
             },
             reloadAlmacen(){
                 this.getDatos()
+            },
+            deleteAlmacen(id){
+                this.$confirm('¿Desea eliminar el registro?',{
+                    confirmButtonText: 'Eliminar',
+                    cancelButtonText: 'Cancelar',
+                    type: 'warning'
+                }).then(() => {
+                    this.$http.delete(`/${this.resource}/${id}/delete`)
+                        .then(response => {
+                            if(response.data.success){
+                                this.$message.success(response.data.message)
+                                this.getDatos()
+                            }else{
+                                this.$message.error(response.data.message);
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        })
+                }).catch(error => {
+                    console.log(error)
+                })
             }
         }
     }

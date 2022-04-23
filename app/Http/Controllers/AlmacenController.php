@@ -20,7 +20,7 @@ class AlmacenController extends Controller
     public function almacenes()
     {
         $empresa_id = Auth::user()->empresa_activa;
-        $almacenes = Almacen::where('empresa_id', $empresa_id)->get();
+        $almacenes = Almacen::where('empresa_id', $empresa_id)->where('estado', '01')->get();
         // $almacenes = Almacen::all();
         return json_encode($almacenes);
         // return $almacenes;
@@ -126,7 +126,7 @@ class AlmacenController extends Controller
 
     public function delete(Almacen $almacen){
         $almacen->estado = '02';
-
+        $almacen->save();
         return [
             'success' => true,
             'message' => 'Almacen eliminado con éxito'

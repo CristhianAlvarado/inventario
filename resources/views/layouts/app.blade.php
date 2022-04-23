@@ -5,7 +5,7 @@
     $path[2] = (array_key_exists(2, $path)> 0)?$path[2]:'';
     $path[0] = ($path[0] === '')?'documents':$path[0];    
 @endphp
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="fixed no-mobile-device custom-scroll sidebar-white sidebar-light {{-- {{$vc_configuracion->visual->sidebar_theme ?? ''}} --}} 
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="fixed no-mobile-device custom-scroll sidebar-dark sidebar-dark {{-- {{$vc_configuracion->visual->sidebar_theme ?? ''}} --}} 
     {{-- {{ ($vc_configuracion->visual->sidebar_theme == 'white' || $vc_configuracion->visual->sidebar_theme == 'gray' || $vc_configuracion->visual->sidebar_theme == 'green' || $vc_configuracion->visual->sidebar_theme == 'warning' || $vc_configuracion->visual->sidebar_theme == 'ligth-blue') ? 'sidebar-light' : '' }}  --}}
     newinvoice">
 <head>
