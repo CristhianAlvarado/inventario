@@ -40,4 +40,96 @@ class AlmacenController extends Controller
             'empresas' => $empresas
         ];
     }
+
+    public function data(Almacen $almacen){
+        return json_encode($almacen);
+    }
+
+    public function store(Request $request){
+        $validate = $request->validate([
+            'descripcion' => 'required',
+            'pais_id' => 'required',
+            'departamento_id' => 'required',
+            'provincia_id' => 'required',
+            'distrito_id' => 'required',
+            'email' => 'required',
+            'telefono' => 'required',
+            'codigo_fiscal' => 'required',
+        ],
+        [
+            'descripcion.required' => 'Debe ingresar una descripcion'
+        ]);
+
+        $almacen = new Almacen();
+        $almacen->descripcion = $request->descripcion;
+        $almacen->pais_id = $request->pais_id;
+        $almacen->departamento_id = $request->departamento_id;
+        $almacen->provincia_id = $request->provincia_id;
+        $almacen->distrito_id = $request->distrito_id;
+        $almacen->direccion = $request->direccion;
+        $almacen->email = $request->email;
+        $almacen->telefono = $request->telefono;
+        $almacen->codigo_fiscal = $request->codigo_fiscal;
+        $almacen->direccion_fiscal = $request->direccion_fiscal;
+        $almacen->logo = $request->logo;
+        $almacen->info_add = $request->info_add;
+        $almacen->empresa_id = $request->empresa_id;
+
+        $almacen->save();
+
+        return [
+            'success' => true,
+            'message' => 'Se agrego correctamento'
+        ];
+        
+    }
+
+    public function update(Request $request){
+        $validate = $request->validate([
+            'id' => 'required',
+            'descripcion' => 'required',
+            'pais_id' => 'required',
+            'departamento_id' => 'required',
+            'provincia_id' => 'required',
+            'distrito_id' => 'required',
+            'email' => 'required',
+            'telefono' => 'required',
+            'codigo_fiscal' => 'required',
+        ],
+        [
+            'descripcion.required' => 'Debe ingresar una descripcion'
+        ]);
+
+        $almacen = Almacen::find($request->id);
+        $almacen->descripcion = $request->descripcion;
+        $almacen->pais_id = $request->pais_id;
+        $almacen->departamento_id = $request->departamento_id;
+        $almacen->provincia_id = $request->provincia_id;
+        $almacen->distrito_id = $request->distrito_id;
+        $almacen->direccion = $request->direccion;
+        $almacen->email = $request->email;
+        $almacen->telefono = $request->telefono;
+        $almacen->codigo_fiscal = $request->codigo_fiscal;
+        $almacen->direccion_fiscal = $request->direccion_fiscal;
+        $almacen->logo = $request->logo;
+        $almacen->info_add = $request->info_add;
+        $almacen->empresa_id = $request->empresa_id;
+
+        $almacen->save();
+
+        return [
+            'success' => true,
+            'message' => 'Se actualizo correctamento el almacen'
+        ];
+        
+    }
+
+    public function delete(Almacen $almacen){
+        $almacen->estado = '02';
+
+        return [
+            'success' => true,
+            'message' => 'Almacen eliminado con éxito'
+        ];
+    }
 }

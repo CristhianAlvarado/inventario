@@ -1,4 +1,25 @@
-.header-page{
-    background-color: #fff;
-    display: flex;
+.el-dialog__wrapper .el-dialog{
+    width: 60% !important;
+}
+
+.el-dialog__wrapper .el-dialog .form-control-feedback, .has-danger{
+    color: red;
+}
+
+@media only screen and (max-width: 600px) {
+    .el-dialog__wrapper .el-dialog{
+        width: 90% !important;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .el-dialog__wrapper .el-dialog{
+        width: 90% !important;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .el-dialog__wrapper .el-dialog{
+        width: 70% !important;
+    }
 }

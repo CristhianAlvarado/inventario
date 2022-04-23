@@ -28,7 +28,7 @@ class CreateAlmacensTable extends Migration
             $table->string('logo')->nullable();
             $table->string('info_add')->nullable();
             $table->unsignedBigInteger('empresa_id');
-
+            $table->enum('estado', ['01', '02'])->default('01'); // 01 => activo y 02 => inactivo
             $table->foreign('pais_id')->references('id')->on('pais');
             $table->foreign('departamento_id')->references('id')->on('departamentos');
             $table->foreign('provincia_id')->references('id')->on('provincias');

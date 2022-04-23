@@ -34,4 +34,8 @@ Route::prefix('almacen')->group(function (){
     Route::get('/', [AlmacenController::class, 'index'])->name('almacen.index');
     Route::get('lista', [AlmacenController::class, 'almacenes']);
     Route::get('tables', [AlmacenController::class, 'tables']);
+    Route::get('/{almacen}/tables', [AlmacenController::class, 'data']);
+    Route::post('/', [AlmacenController::class, 'store']);
+    Route::post('update', [AlmacenController::class, 'update']);
+    Route::delete('/{almacen}/delete', [AlmacenController::class, 'delete']);
 });

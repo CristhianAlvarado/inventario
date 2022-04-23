@@ -6,7 +6,7 @@
                 <li class="active"><span>Establecimientos</span> </li>
             </ol>
             <div class="right-wrapper pull-right">
-                <button type="button" class="btn btn-custom btn-info btn-sm mt-2 mr-2" @click="createAlmacen()"><i class="fas fa-plus-circle"></i>Nuevo</button>
+                <button type="button" class="btn btn-custom btn-info btn-sm mt-2 mr-2" @click="createAlmacen()"><i class="fas fa-plus-circle mr-2"></i>Nuevo</button>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                                 <td>{{ row.descripcion }} </td>
                                 <td>{{ row.codigo_fiscal }} </td>
                                 <td>
-                                    <button class="btn btn-xs btn-info"><i class="far fa-edit"></i></button>
+                                    <button class="btn btn-xs btn-info" @click="createAlmacen(row.id)"><i class="far fa-edit"></i></button>
                                     <button class="btn btn-xs btn-danger"><i class="fas fa-trash-alt"></i></button>
                                     <button class="btn btn-xs btn-warning">Series</button>
                                 </td>
@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <almacen-create :showDialog.sync="showDialog" :almacen_id="almacenid"></almacen-create>
+            <almacen-create :showDialog.sync="showDialog" :almacen_id="almacen_id" @reloadAlmacen="reloadAlmacen"></almacen-create>
 
         </div>
     </div>
@@ -58,7 +58,7 @@
             return {
                 showDialog: false,
                 resource: 'almacen',
-                almacenid: null,
+                almacen_id: null,
                 almacenes: [],
                 seleccionado: ''
             }
@@ -79,6 +79,9 @@
             createAlmacen(almacen_id = null){
                 this.almacen_id = almacen_id
                 this.showDialog = true
+            },
+            reloadAlmacen(){
+                this.getDatos()
             }
         }
     }
