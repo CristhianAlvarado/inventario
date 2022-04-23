@@ -57,18 +57,18 @@
                     <el-input v-model="form.direccion"></el-input>
                 </div>
 
-                <div class="form-group col-12 col-md-6" :class="{'has-danger': errors.email}">
+                <div class="form-group col-12 col-md-9" :class="{'has-danger': errors.email}">
                     <label class="control-label">Correo</label>
                     <el-input type="email" v-model="form.email"></el-input>
                     <small class="form-control-feedback" v-if="errors.email" v-text="errors.email[0]"></small>
                 </div>
 
-                <div class="form-group col-12 col-md-3">
+                <!-- <div class="form-group col-12 col-md-3">
                     <label>Empresa</label><br>
                     <el-select :class="{'w-100': showDialog}" v-model="form.empresa_id" clearable>
                         <el-option v-for="option in empresas" :key="option.id" :value="option.id" :label="option.razon_social"></el-option>
                     </el-select>
-                </div>
+                </div> -->
 
                 <div class="form-group col-12 col-md-3" :class="{'has-danger': errors.telefono}">
                     <label class="control-label">Telefono</label>
@@ -111,7 +111,7 @@
                 departamentos: [],
                 provincias: [],
                 distritos: [],
-                empresas: [],
+                // empresas: [],
             }
         },
         created(){
@@ -144,7 +144,6 @@
                     direccion_fiscal: null,
                     logo: null,
                     info_add: null,
-                    empresa_id: null,
                 }
             },
             async open(){

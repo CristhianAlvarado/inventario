@@ -47,7 +47,7 @@ class AlmacenController extends Controller
 
     public function store(Request $request){
         $validate = $request->validate([
-            'descripcion' => 'required',
+            'descripcion' => 'required|unique:almacens',
             'pais_id' => 'required',
             'departamento_id' => 'required',
             'provincia_id' => 'required',
@@ -57,7 +57,15 @@ class AlmacenController extends Controller
             'codigo_fiscal' => 'required',
         ],
         [
-            'descripcion.required' => 'Debe ingresar una descripcion'
+            'descripcion.required' => 'Debe ingresar una descripcion',
+            'descripcion.unique' => 'Debe ingresar otra descripcion',
+            'pais_id.required' => 'Debe seleccionar un pais',
+            'departamento_id.required' => 'Debe seleccionar un departamento',
+            'provincia_id.required' => 'Debe seleccionar una provincia',
+            'distrito_id.required' => 'Debe seleccionar un distrito',
+            'email.required' => 'Debe ingresar un email',
+            'codigo_fiscal.required' => 'Debe ingresar un codigo fiscal',
+            'telefono.required' => 'Debe ingresar un telefono',
         ]);
 
         $almacen = new Almacen();
@@ -73,7 +81,7 @@ class AlmacenController extends Controller
         $almacen->direccion_fiscal = $request->direccion_fiscal;
         $almacen->logo = $request->logo;
         $almacen->info_add = $request->info_add;
-        $almacen->empresa_id = $request->empresa_id;
+        $almacen->empresa_id = Auth::user()->empresa_activa;
 
         $almacen->save();
 
@@ -113,7 +121,7 @@ class AlmacenController extends Controller
         $almacen->direccion_fiscal = $request->direccion_fiscal;
         $almacen->logo = $request->logo;
         $almacen->info_add = $request->info_add;
-        $almacen->empresa_id = $request->empresa_id;
+        $almacen->empresa_id = Auth::user()->empresa_activa;
 
         $almacen->save();
 
