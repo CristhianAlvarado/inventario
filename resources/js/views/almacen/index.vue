@@ -33,7 +33,7 @@
                                 <td>
                                     <button class="btn btn-xs btn-info" @click.prevent="createAlmacen(row.id)"><i class="far fa-edit"></i></button>
                                     <button class="btn btn-xs btn-danger" @click.prevent="deleteAlmacen(row.id)"><i class="fas fa-trash-alt"></i></button>
-                                    <button class="btn btn-xs btn-warning">Series</button>
+                                    <button class="btn btn-xs btn-warning" @click.prevent="showSeries(row.id)">Series</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -42,6 +42,7 @@
             </div>
 
             <almacen-create :showDialog.sync="showDialog" :almacen_id="almacen_id" @reloadAlmacen="reloadAlmacen"></almacen-create>
+            <almacen-series :showDialog.sync="showDialogSerie" :almacen_id="almacen_id"></almacen-series>
 
         </div>
     </div>
@@ -59,6 +60,7 @@
                 showDialog: false,
                 resource: 'almacen',
                 almacen_id: null,
+                showDialogSerie: false,
                 almacenes: [],
                 seleccionado: ''
             }
@@ -104,6 +106,10 @@
                 }).catch(error => {
                     console.log(error)
                 })
+            },
+            showSeries(id){
+                this.almacen_id = id
+                this.showDialogSerie = true
             }
         }
     }

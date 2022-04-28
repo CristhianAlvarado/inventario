@@ -17,4 +17,8 @@ class Almacen extends Model
     public function tipocdps(){
         return $this->belongsToMany(TipoCdp::class);
     }
+
+    public function series(){
+        return $this->hasMany(Serie::class);
+    }
 }

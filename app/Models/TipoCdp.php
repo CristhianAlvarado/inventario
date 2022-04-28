@@ -11,7 +11,7 @@ class TipoCdp extends Model
     public $timestamps = false;
     use HasFactory;
 
-    public function almacenes(){
-        return $this->belongsToMany(Almacen::class);
+    public function series(){
+        return $this->hasMany(Serie::class);
     }
 }

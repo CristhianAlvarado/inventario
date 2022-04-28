@@ -6,6 +6,10 @@
     color: red;
 }
 
+.el-dialog__wrapper .el-dialog .has-danger{
+    color: red !important;
+}
+
 @media only screen and (max-width: 600px) {
     .el-dialog__wrapper .el-dialog{
         width: 90% !important;

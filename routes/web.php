@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlmacenController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SerieController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,4 +39,11 @@ Route::prefix('almacen')->group(function (){
     Route::post('/', [AlmacenController::class, 'store']);
     Route::post('update', [AlmacenController::class, 'update']);
     Route::delete('/{almacen}/delete', [AlmacenController::class, 'delete']);
+});
+
+//Rutas de series
+Route::prefix('serie')->group(function () {
+    Route::get('cdps', [SerieController::class, 'combocdps']);
+    Route::get('/{almacen}', [SerieController::class, 'lista']);
+    Route::post('/', [SerieController::class, 'store']);
 });
