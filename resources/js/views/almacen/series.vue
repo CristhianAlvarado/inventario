@@ -21,7 +21,7 @@
                         <tfoot v-if="addRow">
                             <td>
                                 <div class="form-group" :class="{'has-danger': errors.tipocdp_id}">
-                                    <el-select v-model="form.tipocdp_id">
+                                    <el-select v-model="form.tipocdp_id" filterable>
                                         <el-option v-for="option in cdps" :key="option.id" :value="option.id" :label="option.descripcion"></el-option>
                                     </el-select><br>
                                     <small class="form-control-feedback" v-if="errors.tipocdp_id" v-text="errors.tipocdp_id[0]"></small>
@@ -48,6 +48,7 @@
     </el-dialog>
 </template>
 <script>
+import moment from 'moment'
     export default {
         props: ['showDialog', 'almacen_id'],
         data() {
@@ -57,6 +58,7 @@
                 titulo: 'Series',
                 series: [],
                 cdps: [],
+                // valuemes: null,
                 addRow: false,
                 showNuevo: true,
                 loading: false,
@@ -91,6 +93,7 @@
                     }) 
             },
             submit(){
+                // console.log(moment(this.valuemes).format('DD/MM/YYYY'))
                 this.loading = true
                 this.$http.post(`/${this.resource}`, this.form)
                     .then(response => {

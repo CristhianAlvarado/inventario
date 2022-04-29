@@ -11,6 +11,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import lang from 'element-ui/lib/locale/lang/es'
 import locale from 'element-ui/lib/locale'
+import moment from 'moment';
 
 locale.use(lang)
 
@@ -24,11 +25,13 @@ Vue.prototype.$eventHub = new Vue()
 
 
 Vue.component('home-component', require('./components/HomeComponent.vue').default);
+Vue.component('periodo-component', require('./components/PeriodoComponent.vue').default);
 
 //Componentes de almacen
 Vue.component('almacen-index', require('./views/almacen/index.vue').default);
 Vue.component('almacen-create', require('./views/almacen/form.vue').default);
 Vue.component('almacen-series', require('./views/almacen/series.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

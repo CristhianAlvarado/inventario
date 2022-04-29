@@ -77,11 +77,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <section class="body">
+    <section class="body" id="app">
         @include('layouts.partials.header')
         <div class="inner-wrapper">
             @include('layouts.partials.sidebar')
-            <section class="content-body" id="app">
+            <section class="content-body" >
                 @yield('content')
                 {{-- @include('layouts.partials.') --}}
             </section>

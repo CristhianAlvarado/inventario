@@ -19,7 +19,7 @@
     <section class="body">
         <div class="container">
             <section class="content-body mt-5" id="app">
-                <home-component :empresas="{{ json_encode($empresa) }}"></home-component>
+                <home-component :empresas="{{ json_encode($empresa) }}"  :empresa_activa="{{ json_encode(Auth::user()->empresa_activa) }}"></home-component>
             </section>
         </div>
     </section>

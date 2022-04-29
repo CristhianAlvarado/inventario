@@ -32,13 +32,13 @@
 
 <script>
     export default {
-        props:['empresas'],
+        props:['empresas', 'empresa_activa'],
         data() {
             return {
                 resource: 'dashboard',
                 enterprise: [],
                 value1: true,
-                seleccionado: ''
+                seleccionado: this.empresa_activa
             }
         },
         /* created(){
